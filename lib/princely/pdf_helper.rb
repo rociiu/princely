@@ -36,7 +36,7 @@ module Princely
 
       html_string = render_to_string(options.slice(:template, :layout, :handlers, :formats))
 
-      html_string = localize_html_string(html_string, Rails.public_path) if options[:relative_paths]
+      html_string = localize_html_string(html_string)
 
       # Send the generated PDF file from our html string.
       if filename = options[:filename] || options[:file]
