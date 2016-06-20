@@ -1,6 +1,7 @@
 module Princely
   module AssetSupport
     def localize_html_string(html_string, asset_path = nil)
+      asset_path = Rails.public_path if Rails.configuration.assets.digest == true && Rails.configuration.assets.compile == true
       html_string = html_string.to_str
       # Make all paths relative, on disk paths...
       html_string.gsub!(".com:/",".com/") # strip out bad attachment_fu URLs
